@@ -10,6 +10,7 @@ This repository contains a collection of Azure CLI commands that I’ve found pa
 
 - [Management](#management)
 - [Access & Subscriptions](#access--subscriptions)
+- [Resource Inventory](#resource-inventory)
 - [Resource Groups](#resource-groups)
 - [Entra ID](#entra-id)
 - [Roles & RBAC](#roles--rbac)
@@ -70,6 +71,43 @@ az configure --defaults location=<location>
 ```
 
 [⬆ ʀᴇᴛᴜʀɴ ᴛᴏ ᴄᴏɴᴛᴇɴᴛꜱ](#contents)
+
+---
+
+## Resource Inventory
+
+```bash
+# List all deployed resources in the current subscription
+az resource list --output table
+
+# List all deployed resources in a specific resource group
+az resource list --resource-group <resource_group> --output table
+
+# List only the resource names and types
+az resource list --query "[].{Name:name, Type:type}" --output table
+
+# List only the resource types currently deployed
+az resource list --query "[].type" --output table
+
+# List resources of a specific type
+az resource list --resource-type Microsoft.Web/sites --output table
+
+# List resources in a specific location
+az resource list --location uksouth --output table
+
+# Show a specific resource
+az resource show \
+  --name <resource_name> \
+  --resource-group <resource_group> \
+  --resource-type <resource_type> \
+  --output jsonc
+
+# Delete a specific resource
+az resource delete \
+  --name <resource_name> \
+  --resource-group <resource_group> \
+  --resource-type <resource_type>
+```
 
 ---
 
