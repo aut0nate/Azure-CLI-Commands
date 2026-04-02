@@ -1,8 +1,8 @@
 # Azure CLI Commands Cheatsheet
 
-[![Microsoft Azure](https://custom-icon-badges.demolab.com/badge/Microsoft%20Azure-0089D6?logo=msazure&logoColor=white)](#)
+[![Microsoft Azure](https://custom-icon-badges.demolab.com/badge/Microsoft%20Azure-0089D6?logo=msazure&logoColor=white)](https://azure.microsoft.com/)
 
-This repository contains a collection of Azure CLI commands that I’ve found particularly useful as part of my learning process. I have grouped this into categories for easy reference. 
+This repository contains a collection of Azure CLI commands that I’ve found particularly useful as part of my learning process. I have grouped this into categories for easy reference.
 
 ---
 
@@ -13,7 +13,7 @@ This repository contains a collection of Azure CLI commands that I’ve found pa
 - [Resource Groups](#resource-groups)
 - [Entra ID](#entra-id)
 - [Roles & RBAC](#roles--rbac)
-- [Virtual Machines]()
+- [Virtual Machines](#virtual-machines)
 - [Networking](#networking)
 - [Storage](#storage)
 - [Key Vault](#keyvault)
@@ -21,7 +21,7 @@ This repository contains a collection of Azure CLI commands that I’ve found pa
 - [App Services](#app-services)
 - [Azure Kubernetes Service (AKS)](#azure-kubernetes-service-aks)
 - [Monitoring](#monitoring)
-   
+
 ---
 
 ## Management
@@ -45,10 +45,10 @@ az cache purge
 
 ```bash
 # Login (tenant)
-az login --tenant integrate-solutions.com
+az login --tenant <tenant>
 
 # Login using device code
-az login --use-device-code --tenant integrate-solutions.com
+az login --use-device-code --tenant <tenant>
 
 # Logout
 az logout
