@@ -63,6 +63,11 @@ az account set --subscription <subscription>
 # Show current subscription
 az account show
 
+# Show current subscription with custom columns
+az account show \
+  --query "{subscription:name, state:state, default:isDefault}" \
+  --output table
+
 # Set default resource group
 az configure --defaults group=<resource_group>
 
@@ -95,6 +100,12 @@ az resource list --resource-type Microsoft.Web/sites --output table
 # List resources in a specific location
 az resource list --location uksouth --output table
 
+# List resource names, types, groups and locations in Arkham (read-only).
+az resource list \
+  --subscription <subscription> \
+  --query "[].{resourceGroup:resourceGroup,name:name,type:type,location:location}" \
+  --output table
+
 # Show a specific resource
 az resource show \
   --name <resource_name> \
@@ -119,6 +130,12 @@ az group create --name <resource_group> --location <location>
 
 # List resource groups
 az group list --output table
+
+# List resource groups with custom columns
+az group list \
+  --subscription <subscription> \
+  --query "[].{name:name, location:location}" \
+  --output table
 
 # Delete resource group
 az group delete --name <resource_group> --yes --no-wait
